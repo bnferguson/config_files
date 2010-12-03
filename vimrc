@@ -85,8 +85,8 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 set statusline+=%{rvm#statusline()}
 
 " \ is the leader character
-"let mapleader = "\\"
-let mapleader = ","
+let mapleader = "\\"
+"let mapleader = ","
 
 " Edit the README_FOR_APP (makes :R commands work)
 map <Leader>R :e doc/README_FOR_APP<CR>
@@ -191,7 +191,8 @@ set smartcase
 " Tags
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
-colorscheme vividchalk
+colorscheme twilight
+"colorscheme vividchalk
 "colorscheme molokai
 "let g:molokai_original = 1
 "colorscheme mustang
@@ -320,3 +321,23 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+
+set cursorline
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+
+" Strip trailing whitespace
+function! <SID>StripTrailingWhitespaces()
+        " Preparation: save last search, and cursor position.
+        let _s=@/
+        let l = line(".")
+        let c = col(".")
+        " Do the business:
+        %s/\s\+$//e
+        " Clean up: restore previous search history, and cursor position
+        let @/=_s
+        call cursor(l, c)
+endfunction
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
