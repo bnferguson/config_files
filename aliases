@@ -1,7 +1,4 @@
-export CMS_DEV_ROOT="/Users/mattdean/cms/trabian_cms"
-export CMS_GEM_DEV_ROOT="/Users/mattdean/cms/gems"
-
-export EDITOR='mate -w'
+export EDITOR='mvim -f'
 
 # cd
 alias ..="cd .."
@@ -20,6 +17,7 @@ alias giv="sudo gem install -v"
 
 # Git
 alias g="git status"
+alias gst="git status"
 alias gb="git branch"
 alias gp="git push"
 alias gl="git pull"
@@ -57,10 +55,9 @@ alias sg="./script/generate"
 alias sp="./script/plugin install"
 alias r="rake"
 alias rr="touch tmp/restart.txt"
-
-# Top
-alias tu="top -o cpu" # cpu
-# alias tm="top -o vsize" # memory
+alias ss='script/server'
+alias sc='script/console'
+alias a='autospec -rails'
 
 # Alias
 alias reload="source ~/.aliases"
@@ -74,14 +71,14 @@ alias e="mvim"
 # CMS
 function cmsinit() {
   export CMS_DB_USER='root'
-  export CMS_DB_PASSWORD='' 
+  export CMS_DB_PASSWORD=''
   env ARCHFLAGS="-arch x86_64" rails -m http://github.com/trabian/rails-templates/raw/master/cms.rb $1
 }
 
 # CMS (Local)
 function cmsinit_local() {
   export CMS_DB_USER='root'
-  export CMS_DB_PASSWORD='' 
+  export CMS_DB_PASSWORD=''
   env ARCHFLAGS="-arch x86_64" rails -m ~/cms/rails-templates/cms.rb $1
 }
 
@@ -89,18 +86,25 @@ function bundle() {
   env ARCHFLAGS="-arch x86_64" /usr/bin/bundle $*
 }
 
-###########
-# Tunnels #
-###########
-alias hfcut='ssh -l root -L 7800:209.184.80.21:22 70.85.82.36 -N &'
-alias hfcu='ssh -p 7800 hfcu'
+#########
+#  SSH  #
+#########
+alias devt='ssh -L7777:localhost:3306 -N ubuntu@sandbox.thefutureis.mobi'
+alias dev='ssh ubuntu@sandbox.thefutureis.mobi'
 
-if [[ -s /Users/mattdean/.rvm/scripts/rvm ]] ; then source /Users/mattdean/.rvm/scripts/rvm ; fi
+alias stage='ssh bnferguson@stage.thefutureis.mobi'
+alias staget='ssh -L7777:localhost:3306 -N bnferguson@stage.thefutureis.mobi'
+#alias stage='ssh ubuntu@stage.thefutureis.mobi'
+alias demo='ssh ubuntu@demo.thefutureis.mobi'
+alias demot='ssh -L7777:localhost:3306 -N ubuntu@demo.thefutureis.mobi'
+alias prod='ssh ubuntu@portal.thefutureis.mobi'
+alias prodt='ssh -L7777:localhost:3306 -N ubuntu@portal.thefutureis.mobi'
 
-alias blkt='ssh blktun -N &'
+alias a1='ssh bnferguson@kenny.thefutureis.mobi'
+alias a1t='ssh -L7777:localhost:3306 -N bnferguson@kenny.thefutureis.mobi'
+alias d1='ssh bnferguson@garrison.thefutureis.mobi'
+alias d1t='ssh -L7777:localhost:3306 -N bnferguson@garrison.thefutureis.mobi'
 
 export GEM_EDITOR='mate'
 
-source ~/.ec2/keys.txt
-
-if [[ -s /Users/mattdean/.rvm/scripts/rvm ]] ; then source /Users/mattdean/.rvm/scripts/rvm ; fi
+if [[ -s /Users/bnferguson/.rvm/scripts/rvm ]] ; then source /Users/bnferguson/.rvm/scripts/rvm ; fi

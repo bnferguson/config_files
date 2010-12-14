@@ -6,7 +6,7 @@ compinit
 setopt auto_cd
 
 # use vim as an editor
-export EDITOR=emacs
+export EDITOR="mvim -f"
 
 # aliases
 if [ -e "$HOME/.aliases" ]; then
@@ -14,10 +14,10 @@ if [ -e "$HOME/.aliases" ]; then
 fi
 
 # vi mode
-# bindkey -v
+bindkey -v
 
 # use incremental search
-bindkey ^R history-incremental-search-backward
+#bindkey ^R history-incremental-search-backward
 
 # expand functions in the prompt
 setopt prompt_subst
@@ -35,6 +35,8 @@ export PATH=~/bin:/usr/local/sbin:/usr/local/git/libexec/git-core/:/usr/local/bi
 
 source ~/.dotfiles/zsh/base.zsh
 
-cdpath=(~ ~/cms/sites ~/cms ~/dev/clients ~/dev/cms/sites ~/Desktop/Inbox ~/dev/oscu)
+cdpath=(~ ~/dev/mobi ~/Desktop/Inbox ~/dev/chef)
 
-if [[ -s /Users/mattdean/.rvm/scripts/rvm ]] ; then source /Users/mattdean/.rvm/scripts/rvm ; fi
+if [[ -s /Users/bnferguson/.rvm/scripts/rvm ]] ; then source /Users/bnferguson/.rvm/scripts/rvm ; fi
+
+cd ~/dev/mobi
