@@ -59,6 +59,11 @@ alias ss='script/server'
 alias sc='script/console'
 alias a='autospec -rails'
 
+function migrate_test (){
+  env RAILS_ENV=test rake db:migrate
+}
+
+
 # Alias
 alias reload="source ~/.aliases"
 alias ea="mate -w ~/.aliases && reload"
@@ -67,20 +72,6 @@ alias m="mate ."
 
 # VIM
 alias e="mvim"
-
-# CMS
-function cmsinit() {
-  export CMS_DB_USER='root'
-  export CMS_DB_PASSWORD=''
-  env ARCHFLAGS="-arch x86_64" rails -m http://github.com/trabian/rails-templates/raw/master/cms.rb $1
-}
-
-# CMS (Local)
-function cmsinit_local() {
-  export CMS_DB_USER='root'
-  export CMS_DB_PASSWORD=''
-  env ARCHFLAGS="-arch x86_64" rails -m ~/cms/rails-templates/cms.rb $1
-}
 
 function bundle() {
   env ARCHFLAGS="-arch x86_64" /usr/bin/bundle $*
@@ -105,6 +96,6 @@ alias a1t='ssh -L7777:localhost:3306 -N bnferguson@kenny.thefutureis.mobi'
 alias d1='ssh bnferguson@garrison.thefutureis.mobi'
 alias d1t='ssh -L7777:localhost:3306 -N bnferguson@garrison.thefutureis.mobi'
 
-export GEM_EDITOR='mate'
+#export GEM_EDITOR='mate'
 
 if [[ -s /Users/bnferguson/.rvm/scripts/rvm ]] ; then source /Users/bnferguson/.rvm/scripts/rvm ; fi
