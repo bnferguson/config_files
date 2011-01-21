@@ -31,7 +31,7 @@ setopt histignoredups
 # keep more history
 export HISTSIZE=200
 
-export PATH=~/bin:/usr/local/sbin:/usr/local/git/libexec/git-core/:/usr/local/bin:/opt/local/bin:/usr/local/mysql/bin/:$EC2_HOME/bin:$PATH:~/dev/util/jruby/bin
+export PATH=~/bin:/usr/local/sbin:/usr/local/git/libexec/git-core/:/usr/local/bin:/opt/local/bin:/usr/local/mysql/bin/:/Users/bnferguson/dev/chromium/depot_tools:$EC2_HOME/bin:$PATH:~/dev/util/jruby/bin
 
 source ~/.dotfiles/zsh/base.zsh
 
