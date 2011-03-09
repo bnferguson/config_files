@@ -1,7 +1,7 @@
-set guifont=Bitstream\ Vera\ Sans\ Mono
+set guifont=Bitstream\ Vera\ Sans\ Mono:h12
 
-" No audible bell
-set vb
+" No audible bell, no visual bell
+set novb
 
 " Use console dialogs and that's it sucka
 set guioptions=c
