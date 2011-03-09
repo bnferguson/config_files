@@ -2,6 +2,9 @@
 
 cutstring="DO NOT EDIT BELOW THIS LINE"
 
+# Bootstrap janus
+.janus/bootstrap.sh
+
 for name in *; do
   target="$HOME/.$name"
   if [ -e $target ]; then
