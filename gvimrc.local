@@ -1,4 +1,4 @@
-set guifont=Bitstream\ Vera\ Sans\ Mono:h12
+set guifont=Bitstream\ Vera\ Sans\ Mono
 
 " No audible bell
 set vb
@@ -7,15 +7,19 @@ set vb
 set guioptions=c
 
 set lines=50 columns=200
-set transparency=15
 
 if has("gui_macvim")
   "macmenu &File.New\ Tab key=<nop>
   map <Leader>p <Plug>PeepOpen
+
+  set guifont=Bitstream\ Vera\ Sans\ Mono:h12
+  set transparency=15
+
+  if has("gui_running")
+    set fuoptions=maxvert,maxhorz
+    au GUIEnter * set fullscreen
+  endif
 end
 
-if has("gui_running")
-  set fuoptions=maxvert,maxhorz
-  au GUIEnter * set fullscreen
-endif
+
 
