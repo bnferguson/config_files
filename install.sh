@@ -1,9 +1,9 @@
 #!/bin/sh
 
-cutstring="DO NOT EDIT BELOW THIS LINE"
-
 # Bootstrap janus
 .janus/bootstrap.sh
+
+cutstring="DO NOT EDIT BELOW THIS LINE"
 
 for name in *; do
   target="$HOME/.$name"
