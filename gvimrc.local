@@ -1,4 +1,4 @@
-set guifont=Bitstream\ Vera\ Sans\ Mono:h12
+set guifont=Bitstream\ Vera\ Sans\ Mono
 
 " No audible bell, no visual bell
 set novb
