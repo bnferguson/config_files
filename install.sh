@@ -1,6 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 # Bootstrap janus
+git submodule init
+git submodule update
 .janus/bootstrap.sh
 
 cutstring="DO NOT EDIT BELOW THIS LINE"
