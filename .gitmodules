@@ -76,3 +76,6 @@
 [submodule "vim/bundle/bufexplorer"]
 	path = vim/bundle/bufexplorer
 	url = https://github.com/vim-scripts/bufexplorer.zip.git
+[submodule "vim"]
+	path = vim
+	url = git://github.com/carlhuda/janus.git
