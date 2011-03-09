@@ -1,6 +1,6 @@
 RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
 PATH="$PATH:$RIPDIR/active/bin:/opt/local/lib/postgresql83/bin"
-PATH="/Users/sotaku/dev/depot_tools:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/opt/local/share/jruby/bin:/usr/local/mysql-5.0.45-osx10.4-i686/bin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"
+PATH="/usr/local/share/npm/bin:/Users/sotaku/dev/depot_tools:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/opt/local/share/jruby/bin:/usr/local/mysql-5.0.45-osx10.4-i686/bin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"
 
 
 # customize my prompt
@@ -24,7 +24,7 @@ export GOBIN=/usr/local/bin
 export GOARCH=amd64
 export GOOS=darwin
 
-export NODE_PATH=/usr/local/lib/node
+export NODE_PATH='/usr/local/lib/node'
 
 export RUBYLIB PATH
 

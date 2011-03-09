@@ -1,7 +1,3 @@
-" Font
-"set guifont=Monaco:h12.00
-"set guifont=Menlo:h12.00
-
 set guifont=Bitstream\ Vera\ Sans\ Mono:h12
 
 " No audible bell
@@ -11,14 +7,15 @@ set vb
 set guioptions=c
 
 set lines=50 columns=200
-set transparency=2
-
-" Local config
-if filereadable(".gvimrc.local")
-  source .gvimrc.local
-endif
+set transparency=15
 
 if has("gui_macvim")
   "macmenu &File.New\ Tab key=<nop>
-  "map <Leader>t <Plug>PeepOpen
+  map <Leader>p <Plug>PeepOpen
 end
+
+if has("gui_running")
+  set fuoptions=maxvert,maxhorz
+  au GUIEnter * set fullscreen
+endif
+

@@ -1,0 +1,67 @@
+" Strip trailing whitespace
+function! <SID>StripTrailingWhitespaces()
+        " Preparation: save last search, and cursor position.
+        let _s=@/
+        let l = line(".")
+        let c = col(".")
+        " Do the business:
+        %s/\s\+$//e
+        " Clean up: restore previous search history, and cursor position
+        let @/=_s
+        call cursor(l, c)
+endfunction
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+" http://stevelosh.com/blog/2010/09/coming-home-to-vim/#making-vim-more-useful
+nnoremap j gj
+nnoremap k gk
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+imap <C-l> <Space>=><Space>
+
+nmap <leader>v :vsplit<CR> <C-w><C-w>
+nmap <leader>s :split<CR> <C-w><C-w>
+
+nnoremap ; :
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
+" Use Ack instead of Grep when available
+if executable("ack")
+  set grepprg=ack\ -H\ --nogroup\ --nocolor
+endif
+
+nmap <D-]> >>
+vmap <D-]> >>
+imap <D-]> <C-O>>>
+
+nmap <D-[> <<
+vmap <D-[> <<
+imap <D-[> <C-O><<
+
+ " requires NERDTree
+nmap <D-d> :NERDTreeToggle<CR>
+
+
+" Leader shortcuts for Rails commands
+map <Leader>m :Rmodel
+map <Leader>c :Rcontroller
+map <Leader>v :Rview
+map <Leader>u :Runittest
+map <Leader>f :Rfunctionaltest
+map <Leader>tm :RTmodel
+map <Leader>tc :RTcontroller
+map <Leader>tv :RTview
+map <Leader>tu :RTunittest
+map <Leader>tf :RTfunctionaltest
+map <Leader>sm :RSmodel
+map <Leader>sc :RScontroller
+map <Leader>sv :RSview
+map <Leader>su :RSunittest
+map <Leader>sf :RSfunctionaltest
+
