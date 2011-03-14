@@ -10,6 +10,7 @@ set lines=50 columns=200
 
 if has("gui_macvim")
   "macmenu &File.New\ Tab key=<nop>
+  set vb
   map <Leader>p <Plug>PeepOpen
 
   set guifont=Bitstream\ Vera\ Sans\ Mono:h12
