@@ -27,7 +27,7 @@ alias gc="git commit"
 alias gca="git commit -a"
 alias gco="git checkout"
 alias gcb="git checkout -b"
-alias gm="git merge"
+#alias gm="git merge"
 alias gconf="$EDITOR .git/config"
 
 function gg() {
@@ -73,9 +73,9 @@ alias m="mate ."
 # VIM
 alias e="mvim"
 
-function bundle() {
-  env ARCHFLAGS="-arch x86_64" /usr/bin/bundle $*
-}
+#function bundle() {
+#  env ARCHFLAGS="-arch x86_64" /usr/bin/bundle $*
+#}
 
 #########
 #  SSH  #

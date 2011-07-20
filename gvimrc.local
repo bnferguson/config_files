@@ -11,14 +11,14 @@ set lines=50 columns=200
 if has("gui_macvim")
   "macmenu &File.New\ Tab key=<nop>
   set vb
-  map <Leader>p <Plug>PeepOpen
+  map <Leader>t <Plug>PeepOpen
 
   set guifont=Bitstream\ Vera\ Sans\ Mono:h12
   set transparency=15
 
   if has("gui_running")
     set fuoptions=maxvert,maxhorz
-    au GUIEnter * set fullscreen
+    "au GUIEnter * set fullscreen
   endif
 end
 
