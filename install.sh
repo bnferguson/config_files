@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Bootstrap janus
-git submodule init
-git submodule update
-.janus/bootstrap.sh
-
 cutstring="DO NOT EDIT BELOW THIS LINE"
 
 for name in *; do
@@ -38,3 +33,8 @@ for name in *; do
     fi
   fi
 done
+
+# Bootstrap janus
+git submodule init
+git submodule update
+.janus/bootstrap.sh

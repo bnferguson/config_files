@@ -27,3 +27,5 @@ case $system_name in
     source ~/.dotfiles/zsh/linux/linux.zsh
     ;;;
 esac
+
+[[ -s "/Users/bnferguson/.rvm/scripts/rvm" ]] && source "/Users/bnferguson/.rvm/scripts/rvm"

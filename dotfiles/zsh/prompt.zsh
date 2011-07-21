@@ -5,12 +5,12 @@ git_diff_color() {
       echo "%{$fg[red]%}"
       return
     ;;;
-    
+
     *updated*)
       echo "%{$fg[red]%}"
       return
     ;;;
-    
+
     *committed*)
       echo "%{$fg[green]%}"
       return
@@ -28,15 +28,15 @@ colors
 
 setopt prompt_subst
 
-# If we're running in an ssh session, use a different colour 
+# If we're running in an ssh session, use a different colour
 # than if we're on a local machine
 
 host_prompt_color() {
-  case ${SSH_CLIENT} in 
+  case ${SSH_CLIENT} in
     [0-9]*)
       echo "%{$fg[yellow]%}"
     ;;;
-    
+
     *)
       echo "%{$fg[blue]%}"
     ;;;
