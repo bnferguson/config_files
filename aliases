@@ -77,25 +77,8 @@ alias e="mvim"
 #  env ARCHFLAGS="-arch x86_64" /usr/bin/bundle $*
 #}
 
-#########
-#  SSH  #
-#########
-alias devt='ssh -L7777:localhost:3306 -N ubuntu@sandbox.thefutureis.mobi'
-alias dev='ssh ubuntu@sandbox.thefutureis.mobi'
-
-alias stage='ssh bnferguson@stage.thefutureis.mobi'
-alias staget='ssh -L7777:localhost:3306 -N bnferguson@stage.thefutureis.mobi'
-#alias stage='ssh ubuntu@stage.thefutureis.mobi'
-alias demo='ssh ubuntu@demo.thefutureis.mobi'
-alias demot='ssh -L7777:localhost:3306 -N ubuntu@demo.thefutureis.mobi'
-alias prod='ssh ubuntu@portal.thefutureis.mobi'
-alias prodt='ssh -L7777:localhost:3306 -N ubuntu@portal.thefutureis.mobi'
-
-alias a1='ssh bnferguson@kenny.thefutureis.mobi'
-alias a1t='ssh -L7777:localhost:3306 -N bnferguson@kenny.thefutureis.mobi'
-alias d1='ssh bnferguson@garrison.thefutureis.mobi'
-alias d1t='ssh -L7777:localhost:3306 -N bnferguson@garrison.thefutureis.mobi'
-
-#export GEM_EDITOR='mate'
+function dbt() {
+  ssh -L7777:localhost:3306 -N $*
+}
 
 if [[ -s /Users/bnferguson/.rvm/scripts/rvm ]] ; then source /Users/bnferguson/.rvm/scripts/rvm ; fi
