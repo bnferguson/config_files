@@ -1,0 +1,1 @@
+ssh -L7777:localhost:3306 -N $*

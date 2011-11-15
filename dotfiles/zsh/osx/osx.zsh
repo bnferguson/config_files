@@ -18,4 +18,15 @@ localhost() {
   echo "Added $1 at address 127.0.0.1"
 }
 
+mac2unix() {
+  cat $1 | tr '\r' '\n'
+}
+
+unix2mac() {
+  cat $1 | tr '\r' '\n'
+}
+
+dos2unix() {
+  cat $1 | tr -d '\r'
+}
 ulimit -n 4096

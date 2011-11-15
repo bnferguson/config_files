@@ -1,5 +1,3 @@
-export EDITOR='mvim -f'
-
 # cd
 alias ..="cd .."
 alias cdd="cd -"
@@ -27,22 +25,10 @@ alias gc="git commit"
 alias gca="git commit -a"
 alias gco="git checkout"
 alias gcb="git checkout -b"
+alias gal="git log --decorate --stat --graph --pretty=format:'%C(yellow)%h%Creset (%ar - %Cred%an%Creset), %s%n'"
+
 #alias gm="git merge"
 alias gconf="$EDITOR .git/config"
-
-function gg() {
-  git commit -v -a -m "$*"
-}
-
-function gbt() {
-  git branch --track $2 $1/$2
-  git checkout $2
-}
-
-function grf() {
-  rm $1
-  git checkout $1
-}
 
 # ls
 alias l="ls -laGh"
@@ -59,26 +45,9 @@ alias ss='script/server'
 alias sc='script/console'
 alias a='autospec -rails'
 
-function migrate_test (){
-  env RAILS_ENV=test rake db:migrate
-}
 
+alias reload="source ~/.dotfiles/zsh/aliases.zsh"
+alias ea="mvim -f ~/.dotfiles/zsh/aliases.zsh && reload"
 
-# Alias
-alias reload="source ~/.aliases"
-alias ea="mate -w ~/.aliases && reload"
+alias e="mvim ."
 
-alias m="mate ."
-
-# VIM
-alias e="mvim"
-
-#function bundle() {
-#  env ARCHFLAGS="-arch x86_64" /usr/bin/bundle $*
-#}
-
-function dbt() {
-  ssh -L7777:localhost:3306 -N $*
-}
-
-if [[ -s /Users/bnferguson/.rvm/scripts/rvm ]] ; then source /Users/bnferguson/.rvm/scripts/rvm ; fi
