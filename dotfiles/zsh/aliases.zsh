@@ -36,14 +36,16 @@ alias l="ls -laGh"
 # Rails
 alias migrate="rake db:migrate db:test:prepare"
 alias remigrate="rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare"
-alias cuc="cucumber -r features"
-alias sg="./script/generate"
-alias sp="./script/plugin install"
 alias r="rake"
 alias rr="touch tmp/restart.txt"
-alias ss='script/server'
-alias sc='script/console'
+alias ss='rails server'
+alias sc='rails console'
 alias a='autospec -rails'
+
+alias b='bundle exec'
+alias be="bundle exec"
+alias s="bundle exec rspec"
+alias cuc="bundle exec cucumber --guess"
 
 
 alias reload="source ~/.dotfiles/zsh/aliases.zsh"

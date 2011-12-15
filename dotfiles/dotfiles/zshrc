@@ -36,5 +36,3 @@ export PATH=/Users/bnferguson/dev/chromium/depot_tools:~/bin:/usr/local/sbin:/us
 cdpath=(~/dev)
 
 source ~/.dotfiles/zsh/base.zsh
-
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
