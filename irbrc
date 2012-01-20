@@ -277,6 +277,14 @@ extend_console 'pm', true, false do
   end
 end
 
+extend_console 'interactive_editor' do
+   # no configuration needed
+end
+
+# Show results of all extension-loading
+puts "#{ANSI[:GRAY]}~> Console extensions:#{ANSI[:RESET]} #{$console_extensions.join(' ')}#{ANSI[:RESET]}"
+
+# Has to be last since Pry.start runs in the foreground, and nothing after will be loaded.
 extend_console 'pry' do
   # Use Pry everywhere
   require 'pry'
@@ -284,10 +292,4 @@ extend_console 'pry' do
   exit
 end
 
-extend_console 'interactive_editor' do
-#   # no configuration needed
-end
-
-# Show results of all extension-loading
-puts "#{ANSI[:GRAY]}~> Console extensions:#{ANSI[:RESET]} #{$console_extensions.join(' ')}#{ANSI[:RESET]}"
 
