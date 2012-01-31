@@ -13,6 +13,12 @@ git_bundles = [
   "git://github.com/tpope/vim-rails.git",
   "git://github.com/vim-ruby/vim-ruby.git",
   "git://github.com/vim-scripts/ack.vim.git",
+  "git://github.com/Lokaltog/vim-powerline.git",
+  "git://github.com/vim-scripts/bufexplorer.zip.git",
+  "git://github.com/vim-scripts/VimClojure.git",
+  "git://github.com/vim-scripts/screen.vim.git",
+  "git://github.com/jayed/slimv.git",
+  "git://github.com/briancollins/vim-jst.git",
 ]
 
 vim_org_scripts = [
