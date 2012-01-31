@@ -17,6 +17,9 @@ set softtabstop=2
 set expandtab
 set list listchars=tab:\ \ ,trail:·
 
+" Default gui color scheme
+color ir_black
+
 " Searching
 set hlsearch
 set incsearch
@@ -79,15 +82,6 @@ set backspace=indent,eol,start
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
 
-" gist-vim defaults
-if has("mac")
-  let g:gist_clip_command = 'pbcopy'
-elseif has("unix")
-  let g:gist_clip_command = 'xclip -selection clipboard'
-endif
-let g:gist_detect_filetype = 1
-let g:gist_open_browser_after_post = 1
-
 " Use modeline overrides
 set modeline
 set modelines=10
@@ -102,7 +96,6 @@ let macvim_hig_shift_movement = 1
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
-
 
 " Show (partial) command in the status line
 set showcmd
@@ -162,9 +155,6 @@ imap <D-[> <C-O><<
 
 " requires NERDTree
 nmap <D-d> :NERDTreeToggle<CR>
-
-" Default gui color scheme
-color ir_black
 
 " Leader shortcuts for Rails commands
 " map <Leader>m :Rmodel
