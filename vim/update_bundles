@@ -19,6 +19,15 @@ git_bundles = [
   "git://github.com/vim-scripts/screen.vim.git",
   "git://github.com/jayed/slimv.git",
   "git://github.com/briancollins/vim-jst.git",
+  "git://github.com/nono/vim-handlebars.git",
+  "git://github.com/wgibbs/vim-irblack.git",
+  "git://github.com/tpope/vim-vividchalk.git",
+  "git://github.com/tpope/vim-cucumber.git",
+  "https://github.com/skwp/vim-rspec.git",
+  "https://github.com/cakebaker/scss-syntax.vim.git",
+  "https://github.com/mmalecki/vim-node.js.git",
+  "https://github.com/ervandew/supertab.git",
+  "https://github.com/tpope/vim-unimpaired.git"
 ]
 
 vim_org_scripts = [

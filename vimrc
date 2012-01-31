@@ -142,9 +142,6 @@ imap <C-l> <Space>=><Space>
 nmap <leader>v :vsplit<CR> <C-w><C-w>
 nmap <leader>s :split<CR> <C-w><C-w>
 
-syntax on
-filetype plugin indent on
-
 nnoremap ; :
 
 " Don't use Ex mode, use Q for formatting
