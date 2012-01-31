@@ -34,7 +34,3 @@ for name in *; do
   fi
 done
 
-# Bootstrap janus
-git submodule init
-git submodule update
-.janus/bootstrap.sh
