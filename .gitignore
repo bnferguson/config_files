@@ -1,6 +1,6 @@
 *.swp
 .swo
 vim/.netrwhist
-vim/.bundles/*
+vim/.bundle/*
 .DS_Store
 **/.DS_Store
