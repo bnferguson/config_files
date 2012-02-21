@@ -9,6 +9,9 @@ syntax on
 " Set encoding
 set encoding=utf-8
 
+" Treat tilde as an operator
+set tildeop
+
 " Whitespace stuff
 set nowrap
 set tabstop=2
@@ -175,6 +178,9 @@ nmap <D-d> :NERDTreeToggle<CR>
 " map <Leader>su :RSunittest
 " map <Leader>sf :RSfunctionaltest
 
+" Kill F1 Help
+map <F1> <Esc>
+imap <F1> <Esc>
 
 " settings for VimClojure
 let g:vimclojure#HighlightBuiltins=1   " Highlight Clojure's builtins
@@ -184,7 +190,7 @@ let vimclojure#NailgunClient="/usr/local/bin/ng" " Nailgun location
 let vimclojure#WantNailgun=1
 let vimclojure#SplitPos = "right"
 
-let g:slimv_swank_cmd = '!osascript -e "tell application \"Terminal\" to do script \"sbcl --load ~/.vim/tmp/slimv/slime/start-swank.lisp\""'
+let g:slimv_swank_cmd = '!osascript -e "tell application \"Terminal\" to do script \"sbcl --load ~/.vim/slime/start-swank.lisp\""'
 map <Leader>fd :call SlimvEvalDefun()
 map <Leader>fb :call SlimvEvalBuffer()
 map <Leader>fr :call SlimvEvalRegion()

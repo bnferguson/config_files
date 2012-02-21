@@ -27,7 +27,6 @@ git_bundles = [
   "https://github.com/cakebaker/scss-syntax.vim.git",
   "https://github.com/mmalecki/vim-node.js.git",
   "https://github.com/ervandew/supertab.git",
-  "https://github.com/juvenn/mustache.vim.git"
 ]
 
 vim_org_scripts = [
