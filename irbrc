@@ -130,36 +130,36 @@ extend_console 'rails3', defined?(ActiveSupport::Notifications), false do
   include ActionView::Helpers::TranslationHelper
 
   if defined?(Hirb)
-    # hirb view for a route
-    class Hirb::Helpers::Route < Hirb::Helpers::AutoTable
-      def self.render(output, options = {})
-        super( output.requirements.map{ |k,v|
-          [k, v.inspect]
-        }, options.merge({
-          :headers     => [output.name || '', "#{ output.verb || 'ANY' } #{ output.path }"],
-          :unicode     => true,
-          :description => nil,
-        }) )
-      end
-    end
-    Hirb.add_view ActionDispatch::Routing::Route, :class => Hirb::Helpers::Route
+    #hirb view for a route
+    #class Hirb::Helpers::Route < Hirb::Helpers::AutoTable
+      #def self.render(output, options = {})
+        #super( output.requirements.map{ |k,v|
+          #[k, v.inspect]
+        #}, options.merge({
+          #:headers     => [output.name || '', "#{ output.verb || 'ANY' } #{ output.path }"],
+          #:unicode     => true,
+          #:description => nil,
+        #}) )
+      #end
+    #end
+    #Hirb.add_view ActionDispatch::Routing::Route, :class => Hirb::Helpers::Route
 
-    # short and long route list
-    def routes(long_output = false)
-      if long_output
-        Rails.application.routes.routes.each{ |e|
-          puts Hirb::Helpers::Route.render(e)
-        }
-        true
-      else
-        Hirb::Console.render_output Rails.application.routes.routes.map{|e|
-          [e.name || '', e.verb || 'ANY', e.path]
-        },{
-          :class   => Hirb::Helpers::AutoTable,
-          :headers => %w<name verb path>,
-        }
-      end
-    end
+    #short and long route list
+    #def routes(long_output = false)
+      #if long_output
+        #Rails.application.routes.routes.each{ |e|
+          #puts Hirb::Helpers::Route.render(e)
+        #}
+        #true
+      #else
+        #Hirb::Console.render_output Rails.application.routes.routes.map{|e|
+          #[e.name || '', e.verb || 'ANY', e.path]
+        #},{
+          #:class   => Hirb::Helpers::AutoTable,
+          #:headers => %w<name verb path>,
+        #}
+      #end
+    #end
 
     # misc db helpers (requires hirb)
     module DatabaseHelpers
