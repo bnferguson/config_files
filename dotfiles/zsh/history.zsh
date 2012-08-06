@@ -1,6 +1,6 @@
 HISTFILE=~/.zhistory
-HISTSIZE=100000
-SAVEHIST=100000
+HISTSIZE=2000
+SAVEHIST=2000
 #setopt appendhistory
 setopt share_history
 setopt histignoredups

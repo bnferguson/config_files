@@ -1,5 +1,5 @@
 autoload -U compinit
-compinit
+compinit -d ~/.zshdumpfile
 
 
 # autocompletion for ruby_test

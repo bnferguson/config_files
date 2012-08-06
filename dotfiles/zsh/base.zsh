@@ -30,7 +30,9 @@ esac
 
 export PATH="/Users/bnferguson/.rbenv/shims:${PATH}"
 source "/usr/local/Cellar/rbenv/0.2.1/libexec/../completions/rbenv.zsh"
+
 rbenv rehash 2>/dev/null
+
 function rbenv() {
   command="$1"
   if [ "$#" -gt 0 ]; then

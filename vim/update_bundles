@@ -2,8 +2,7 @@
 
 git_bundles = [
   "git://github.com/vim-scripts/ZoomWin.git",
-  "git://git.wincent.com/command-t.git",
-  "git://github.com/scrooloose/syntastic.git",
+  #"git://git.wincent.com/command-t.git",
   "git://github.com/pangloss/vim-javascript.git",
   "git://github.com/scrooloose/nerdtree.git",
   "git://github.com/scrooloose/nerdcommenter.git",
@@ -15,18 +14,17 @@ git_bundles = [
   "git://github.com/vim-scripts/ack.vim.git",
   "git://github.com/Lokaltog/vim-powerline.git",
   "git://github.com/vim-scripts/bufexplorer.zip.git",
-  "git://github.com/vim-scripts/VimClojure.git",
   "git://github.com/vim-scripts/screen.vim.git",
-  "git://github.com/jayed/slimv.git",
   "git://github.com/briancollins/vim-jst.git",
   "git://github.com/nono/vim-handlebars.git",
   "git://github.com/wgibbs/vim-irblack.git",
-  "git://github.com/tpope/vim-vividchalk.git",
   "git://github.com/tpope/vim-cucumber.git",
-  "https://github.com/skwp/vim-rspec.git",
   "https://github.com/cakebaker/scss-syntax.vim.git",
   "https://github.com/mmalecki/vim-node.js.git",
   "https://github.com/ervandew/supertab.git",
+  "https://github.com/altercation/vim-colors-solarized",
+  "https://github.com/kien/ctrlp.vim",
+  "https://github.com/empanda/vim-varnish.git"
 ]
 
 vim_org_scripts = [
@@ -51,7 +49,7 @@ git_bundles.each do |url|
 end
 
 # Compile Command-T
-`cd ~/.vim/bundle/command-t && rake make`
+#`cd ~/.vim/bundle/command-t && rake make`
 
 vim_org_scripts.each do |name, script_id, script_type|
   puts "downloading #{name}"

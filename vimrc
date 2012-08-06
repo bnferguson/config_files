@@ -1,5 +1,7 @@
 call pathogen#infect()
 
+set background=dark
+
 set nocompatible
 
 set number
@@ -21,17 +23,38 @@ set expandtab
 set list listchars=tab:\ \ ,trail:·
 
 " Default gui color scheme
-color ir_black
+color solarized
 
 " Searching
 set hlsearch
 set incsearch
-set ignorecase
-set smartcase
+set showmatch
+" make searches case-sensitive only if they contain upper-case characters
+set ignorecase smartcase
+
+" highlight current line
+set cursorline
+set cmdheight=2
+
+" Make windows expand and contract as active
+set switchbuf=useopen
+set numberwidth=5
+set showtabline=2
+set winwidth=79
+set shell=bash
+
+" Prevent Vim from clobbering the scrollback buffer. See
+" http://www.shallowsky.com/linux/noaltscreen.html
+set t_ti= t_te=
+
+" keep more context when scrolling off the end of a buffer
+set scrolloff=3
+
 
 " Tab completion
-set wildmode=list:longest,list:full
+set wildmode=longest,list
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
+set wildmenu
 
 " Status bar
 set laststatus=2
@@ -41,12 +64,16 @@ set laststatus=2
 " This is likely a bludgeon to solve some other issue, but it works
 set noequalalways
 
+" Auto source .vimrc and .gvimrc post save
+au! BufWritePost .vimrc source %
+au! BufWritePost .gvimrc source %
+
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 map <Leader>n :NERDTreeToggle<CR>
 
 " Command-T configuration
-let g:CommandTMaxHeight=20
+" let g:CommandTMaxHeight=20
 
 " ZoomWin configuration
 map <Leader><Leader> :ZoomWin<CR>
@@ -57,29 +84,13 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
-function s:setupWrapping()
-  set wrap
-  set wrapmargin=2
-  set textwidth=72
-endfunction
-
-function s:setupMarkup()
-  call s:setupWrapping()
-  map <buffer> <Leader>p :Hammer<CR>
-endfunction
-
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
-
-" md, markdown, and mk are markdown and define buffer-local preview
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
 
 au BufNewFile,BufRead *.handlebars,*.hbs set filetype=handlebars
 
 " add json syntax highlighting
 au BufNewFile,BufRead *.json set ft=javascript
-
-au BufRead,BufNewFile *.txt call s:setupWrapping()
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -97,10 +108,6 @@ set directory=~/.vim/backup
 
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 let macvim_hig_shift_movement = 1
-
-" Enable syntastic syntax checking
-let g:syntastic_enable_signs=1
-let g:syntastic_quiet_warnings=1
 
 " Show (partial) command in the status line
 set showcmd
@@ -130,12 +137,27 @@ cmap w!! %!sudo tee > /dev/null %
 nnoremap j gj
 nnoremap k gk
 
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MISC KEY MAPS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>y "*y
+" Make <leader>' switch between ' and "
+nnoremap <leader>' ""yls<c-r>={'"': "'", "'": '"'}[@"]<cr><esc>
 
-imap <C-l> <Space>=><Space>
+" Move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" Insert a hash rocket with <c-l>
+imap <c-l> <space>=><space>
+
+" Can't be bothered to understand ESC vs <c-c> in insert mode
+imap <c-c> <esc>
+
+" ,, toggles buffers
+nnoremap ,, <c-^>
 
 nmap <leader>v :vsplit<CR> <C-w><C-w>
 nmap <leader>s :split<CR> <C-w><C-w>
@@ -159,7 +181,7 @@ vmap <D-[> <<
 imap <D-[> <C-O><<
 
 " requires NERDTree
-nmap <D-d> :NERDTreeToggle<CR>
+"nmap <D-d> :NERDTreeToggle<CR>
 
 " Leader shortcuts for Rails commands
 " map <Leader>m :Rmodel
@@ -182,15 +204,82 @@ nmap <D-d> :NERDTreeToggle<CR>
 map <F1> <Esc>
 imap <F1> <Esc>
 
-" settings for VimClojure
-let g:vimclojure#HighlightBuiltins=1   " Highlight Clojure's builtins
-let g:vimclojure#ParenRainbow=1        " Rainbow parentheses'!
-let g:vimclojure#DynamicHighlighting=1 " Dynamically highlight functions
-let vimclojure#NailgunClient="/usr/local/bin/ng" " Nailgun location
-let vimclojure#WantNailgun=1
-let vimclojure#SplitPos = "right"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RUNNING TESTS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RunTests(filename)
+    " Write the file and run tests for the given filename
+    :w
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    if match(a:filename, '\.feature$') != -1
+        exec ":!script/features " . a:filename
+    else
+        if filereadable("script/test")
+            exec ":!script/test " . a:filename
+        elseif filereadable("Gemfile")
+            exec ":!bundle exec rspec --color " . a:filename
+        else
+            exec ":!rspec --color " . a:filename
+        end
+    end
+endfunction
 
-let g:slimv_swank_cmd = '!osascript -e "tell application \"Terminal\" to do script \"sbcl --load ~/.vim/slime/start-swank.lisp\""'
-map <Leader>fd :call SlimvEvalDefun()
-map <Leader>fb :call SlimvEvalBuffer()
-map <Leader>fr :call SlimvEvalRegion()
+function! SetTestFile()
+    " Set the spec file that tests will be run for.
+    let t:grb_test_file=@%
+endfunction
+
+function! RunTestFile(...)
+    if a:0
+        let command_suffix = a:1
+    else
+        let command_suffix = ""
+    endif
+
+    " Run the tests for the previously-marked file.
+    let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
+    if in_test_file
+        call SetTestFile()
+    elseif !exists("t:grb_test_file")
+        return
+    end
+    call RunTests(t:grb_test_file . command_suffix)
+endfunction
+
+function! RunNearestTest()
+    let spec_line_number = line('.')
+    call RunTestFile(":" . spec_line_number . " -b")
+endfunction
+
+map <leader>t :call RunTestFile()<cr>
+map <leader>T :call RunNearestTest()<cr>
+map <leader>a :call RunTests('')<cr>
+map <leader>c :w\|:!script/features<cr>
+map <leader>w :w\|:!script/features --profile wip<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" OPEN FILES IN DIRECTORY OF CURRENT FILE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RENAME CURRENT FILE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'))
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>n :call RenameFile()<cr>
+
+
