@@ -47,9 +47,6 @@ alias be="bundle exec"
 alias s="bundle exec rspec"
 alias cuc="bundle exec cucumber --guess"
 
-
 alias reload="source ~/.dotfiles/zsh/aliases.zsh"
 alias ea="mvim -f ~/.dotfiles/zsh/aliases.zsh && reload"
 
-alias e="mvim ."
-alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"

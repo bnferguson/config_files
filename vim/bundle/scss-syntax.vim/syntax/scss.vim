@@ -4,11 +4,17 @@
 " Inspired by the syntax files for sass and css. Thanks to the authors of
 " those files!
 
-if exists("b:current_syntax")
-  finish
+if !exists("main_syntax")
+  if version < 600
+    syntax clear
+  elseif exists("b:current_syntax")
+    finish
+  endif
+  let main_syntax = 'scss'
 endif
 
 runtime! syntax/css.vim
+runtime! syntax/css/*.vim
 
 syn case ignore
 
@@ -99,3 +105,6 @@ hi def link scssImport    Include
 hi def link scssImportStr Include
 
 let b:current_syntax = "scss"
+if main_syntax == 'scss'
+  unlet main_syntax
+endif

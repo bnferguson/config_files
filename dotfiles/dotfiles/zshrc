@@ -23,4 +23,3 @@ export PATH=/Users/bnferguson/dev/chromium/depot_tools:~/bin:/usr/local/sbin:/us
 cdpath=(~/dev)
 
 source ~/.dotfiles/zsh/base.zsh
-source ~/ros/setup.zsh

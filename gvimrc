@@ -1,13 +1,8 @@
-" Fullscreen takes up entire screen
-set fuoptions=maxhorz,maxvert
 
 " Command-T for CtrlP
-macmenu &File.New\ Tab key=<D-T>
 map <D-t> :CtrlP<CR>
 imap <D-t> <Esc>:CtrlP<CR>
 
-" Command-Return for fullscreen
-macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-CR>
 
 " Command-Shift-F for Ack
 map <D-F> :Ack<space>
@@ -41,6 +36,11 @@ if has("gui_macvim")
   "macmenu &File.New\ Tab key=<nop>
   set vb
 
+  macmenu &File.New\ Tab key=<D-T>
+
+  " Command-Return for fullscreen
+  macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-CR>
+
   " requires NERDTree
   nmap <D-d> :NERDTreeToggle<CR>
 
@@ -49,7 +49,11 @@ if has("gui_macvim")
 
   if has("gui_running")
     set fuoptions=maxvert,maxhorz
-    "au GUIEnter * set fullscreen
   endif
 end
+
+if has("gui_running")
+  set lines=999
+  set columns=999
+endif
 

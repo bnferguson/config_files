@@ -9,6 +9,8 @@ alias scp='/usr/bin/scp'
 alias sftp='/usr/bin/sftp'
 
 alias ls='ls -ahGl'
+alias e="mvim ."
+alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
 
 fpath=(~/.dotfiles/zsh/osx/functions $fpath)
 autoload -U ~/.dotfiles/zsh/osx/functions/*(:t)
@@ -30,3 +32,12 @@ dos2unix() {
   cat $1 | tr -d '\r'
 }
 ulimit -n 4096
+
+source "/usr/local/Cellar/rbenv/0.2.1/libexec/../completions/rbenv.zsh"
+
+export GOROOT=`brew --cellar`/go/HEAD
+export GOBIN=/usr/local/bin
+export GOARCH=amd64
+export GOOS=darwin
+export GYP_DEFINES='mac_sdk=10.8'
+export JAVA_HOME='/System/Library/Frameworks/JavaVM.framework/Home/'
