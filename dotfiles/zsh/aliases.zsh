@@ -7,11 +7,6 @@ alias -g .....='../../../..'
 
 # Finder
 alias o="open . &"
-alias ff="open -a Firefox"
-
-# Gems
-alias gi="sudo gem install"
-alias giv="sudo gem install -v"
 
 # Git
 alias g="git status"
@@ -26,8 +21,6 @@ alias gca="git commit -a"
 alias gco="git checkout"
 alias gcb="git checkout -b"
 alias gal="git log --decorate --stat --graph --pretty=format:'%C(yellow)%h%Creset (%ar - %Cred%an%Creset), %s%n'"
-
-#alias gm="git merge"
 alias gconf="$EDITOR .git/config"
 
 # ls

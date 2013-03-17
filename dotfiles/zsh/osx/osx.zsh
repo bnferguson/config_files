@@ -3,6 +3,8 @@
 export PATH=~/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH
 # export EDITOR='mvim -f'
 export EDITOR='subl -n -w'
+export GYP_DEFINES='mac_sdk=10.8'
+export JAVA_HOME='/System/Library/Frameworks/JavaVM.framework/Home/'
 
 # Use OS X version of SSH with agent forwarding
 alias ssh='/usr/bin/ssh -A'
@@ -24,5 +26,3 @@ localhost() {
 
 ulimit -n 4096
 
-export GYP_DEFINES='mac_sdk=10.8'
-export JAVA_HOME='/System/Library/Frameworks/JavaVM.framework/Home/'

@@ -1,19 +1,11 @@
 RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
 PATH="/usr/local/share/npm/bin:/usr/local/chromium/depot_tools:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/sbin:/opt/local/share/jruby/bin:/usr/local/mysql/bin:/usr/local/share/npm/bin:$PATH"
-export FCEDIT='vim'
 
 # customize my prompt
-#PS1="\W $ "
-#PS1='\[\e[0;33m\]\n\w$(__git_ps1 "(%s)")\n\! \$\[\e[0m\]'
 PS1='\w$(__git_ps1 "(\[\e[0;36m\]%s\[\e[0m\])") $ '
-# Make textmate my default svn commit editor
+
 export MANPATH=/opt/local/share/man:$MANPATH
 export RUBYOPTS="-rubygems"
-# Setup Amazon EC2 Command-Line Tools
-export EC2_HOME=~/.ec2
-export PATH=$PATH:$EC2_HOME/bin
-#export EC2_PRIVATE_KEY=`ls $EC2_HOME/bnferguson/pk-*.pem`
-#export EC2_CERT=`ls $EC2_HOME/bnferguson/cert-*.pem`
 
 export RUBYLIB PATH
 
