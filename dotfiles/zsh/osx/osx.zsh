@@ -10,7 +10,6 @@ alias scp='/usr/bin/scp'
 alias sftp='/usr/bin/sftp'
 
 alias ls='ls -ahGl'
-alias e="mvim ."
 alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
 
 source "/usr/local/share/zsh/site-functions"
@@ -35,8 +34,6 @@ dos2unix() {
   cat $1 | tr -d '\r'
 }
 ulimit -n 4096
-
-source "/usr/local/Cellar/rbenv/0.2.1/libexec/../completions/rbenv.zsh"
 
 export GOROOT=`brew --cellar`/go/HEAD
 export GOBIN=/usr/local/bin
