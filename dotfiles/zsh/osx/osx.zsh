@@ -35,9 +35,5 @@ dos2unix() {
 }
 ulimit -n 4096
 
-export GOROOT=`brew --cellar`/go/HEAD
-export GOBIN=/usr/local/bin
-export GOARCH=amd64
-export GOOS=darwin
 export GYP_DEFINES='mac_sdk=10.8'
 export JAVA_HOME='/System/Library/Frameworks/JavaVM.framework/Home/'

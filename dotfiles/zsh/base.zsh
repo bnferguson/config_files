@@ -31,4 +31,3 @@ esac
 export PATH="${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${HOME}/.rbenv/plugins/ruby-build/bin:${PATH}"
 
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
-
