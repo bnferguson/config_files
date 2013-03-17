@@ -12,7 +12,7 @@ git_bundles = [
   "git://github.com/tpope/vim-rails.git",
   "git://github.com/vim-ruby/vim-ruby.git",
   "git://github.com/vim-scripts/ack.vim.git",
-  "git://github.com/Lokaltog/vim-powerline.git",
+  "https://github.com/Lokaltog/powerline",
   "git://github.com/vim-scripts/bufexplorer.zip.git",
   "git://github.com/vim-scripts/screen.vim.git",
   "git://github.com/briancollins/vim-jst.git",
@@ -24,7 +24,10 @@ git_bundles = [
   "https://github.com/ervandew/supertab.git",
   "https://github.com/altercation/vim-colors-solarized",
   "https://github.com/kien/ctrlp.vim",
-  "https://github.com/empanda/vim-varnish.git"
+  "https://github.com/empanda/vim-varnish.git",
+  "https://github.com/Nemo157/glsl.vim.git",
+  "https://github.com/scrooloose/syntastic.git",
+  "https://github.com/bnferguson/rust.vim"
 ]
 
 vim_org_scripts = [

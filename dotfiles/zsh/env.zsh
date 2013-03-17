@@ -15,8 +15,6 @@ export PATH=$PATH:$EC2_HOME/bin
 #export EC2_PRIVATE_KEY=`ls $EC2_HOME/bnferguson/pk-*.pem`
 #export EC2_CERT=`ls $EC2_HOME/bnferguson/cert-*.pem`
 
-export NODE_PATH='/usr/local/lib/node'
-
 export RUBYLIB PATH
 
 export RUBY_HEAP_MIN_SLOTS=500000

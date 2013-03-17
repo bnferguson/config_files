@@ -48,5 +48,5 @@ alias s="bundle exec rspec"
 alias cuc="bundle exec cucumber --guess"
 
 alias reload="source ~/.dotfiles/zsh/aliases.zsh"
-alias ea="mvim -f ~/.dotfiles/zsh/aliases.zsh && reload"
-
+alias ea="$EDITOR ~/.dotfiles/zsh/aliases.zsh && reload"
+alias e="$EDITOR ."

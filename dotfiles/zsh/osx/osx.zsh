@@ -1,7 +1,8 @@
 # OS X specific settings
 
 export PATH=~/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH
-export EDITOR='mvim -f'
+# export EDITOR='mvim -f'
+export EDITOR='subl -n -w'
 
 # Use OS X version of SSH with agent forwarding
 alias ssh='/usr/bin/ssh -A'
@@ -11,6 +12,8 @@ alias sftp='/usr/bin/sftp'
 alias ls='ls -ahGl'
 alias e="mvim ."
 alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
+
+source "/usr/local/share/zsh/site-functions"
 
 fpath=(~/.dotfiles/zsh/osx/functions $fpath)
 autoload -U ~/.dotfiles/zsh/osx/functions/*(:t)
