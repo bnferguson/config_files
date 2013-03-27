@@ -1,6 +1,6 @@
 --- 
 :update_sources: true
-gem: --no-ri --no-rdoc -n/usr/local/bin
+gem: --no-ri --no-rdoc
 :backtrace: false
 :verbose: true
 :bulk_threshold: 1000
