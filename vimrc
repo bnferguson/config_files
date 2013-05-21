@@ -70,10 +70,37 @@ au! BufWritePost .gvimrc source %
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
-map <Leader>n :NERDTreeToggle<CR>
+map <Leader>D :NERDTreeToggle<CR>
+map <Leader>d :CtrlP<CR>
+imap <Leader>d <ESC>:CtrlP<CR>
+
+" Leader-/ to toggle comments
+map <Leader>/ <plug>NERDCommenterToggle<CR>
+imap <Leader>/ <Esc><plug>NERDCommenterToggle<CR>i
+
+" Adjust viewports to the same size
+map <Leader>= <C-w>=
+imap <Leader>= <Esc> <C-w>=
+
+" Leader F for Ack
+map <Leader>F :Ack<space>
+
+" Leader s for Saving the file and backing out of insert mode
+imap <Leader>s <ESC>:w<CR>
+map <Leader>s :w<CR>
+
+" Super silly Leader q for quitting.
+imap <Leader>q <ESC>:q<CR>
+map <Leader>q :q<CR>
+
+vmap <Leader>] >gv
+vmap <Leader>[ <gv
 
 " Command-T configuration
 " let g:CommandTMaxHeight=20
+
+" No audible bell, no visual bell
+set novb
 
 " ZoomWin configuration
 map <Leader><Leader> :ZoomWin<CR>
@@ -159,8 +186,8 @@ imap <c-c> <esc>
 " ,, toggles buffers
 nnoremap ,, <c-^>
 
-nmap <leader>v :vsplit<CR> <C-w><C-w>
-nmap <leader>s :split<CR> <C-w><C-w>
+"nmap <leader>v :vsplit<CR> <C-w><C-w>
+"nmap <leader>s :split<CR> <C-w><C-w>
 
 nnoremap ; :
 
@@ -179,9 +206,6 @@ imap <D-]> <C-O>>>
 nmap <D-[> <<
 vmap <D-[> <<
 imap <D-[> <C-O><<
-
-" requires NERDTree
-"nmap <D-d> :NERDTreeToggle<CR>
 
 " Leader shortcuts for Rails commands
 " map <Leader>m :Rmodel
@@ -259,8 +283,8 @@ endfunction
 map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 map <leader>a :call RunTests('')<cr>
-map <leader>c :w\|:!script/features<cr>
-map <leader>w :w\|:!script/features --profile wip<cr>
+map <leader>c :w\|:!bundle exec script/features<cr>
+map <leader>w :w\|:!buncle exec script/features --profile wip<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
@@ -280,6 +304,6 @@ function! RenameFile()
         redraw!
     endif
 endfunction
-map <leader>n :call RenameFile()<cr>
+map <leader>r :call RenameFile()<cr>
 
 

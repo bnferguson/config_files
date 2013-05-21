@@ -21,7 +21,7 @@ alias gca="git commit -a"
 alias gco="git checkout"
 alias gcb="git checkout -b"
 alias gal="git log --decorate --stat --graph --pretty=format:'%C(yellow)%h%Creset (%ar - %Cred%an%Creset), %s%n'"
-alias gconf="$EDITOR .git/config"
+alias gconf="subl .git/config"
 
 # ls
 alias l="ls -laGh"
@@ -41,5 +41,6 @@ alias s="bundle exec rspec"
 alias cuc="bundle exec cucumber --guess"
 
 alias reload="source ~/.dotfiles/zsh/aliases.zsh"
-alias ea="$EDITOR ~/.dotfiles/zsh/aliases.zsh && reload"
-alias e="$EDITOR ."
+alias ea="mvim ~/.dotfiles/zsh/aliases.zsh && reload"
+alias e="mvim ."
+
