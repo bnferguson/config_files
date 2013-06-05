@@ -136,6 +136,10 @@ set directory=~/.vim/backup
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 let macvim_hig_shift_movement = 1
 
+
+let g:syntastic_c_include_dirs = [ '../include', 'include', '/usr/local/include', '/usr/include', '/usr/local/include/GraphicsMagick']
+
+
 " Show (partial) command in the status line
 set showcmd
 
