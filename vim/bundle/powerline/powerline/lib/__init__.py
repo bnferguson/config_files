@@ -2,9 +2,13 @@
 from functools import wraps
 import json
 
-from powerline.lib.memoize import memoize  # NOQA
-from powerline.lib.humanize_bytes import humanize_bytes  # NOQA
-from powerline.lib.url import urllib_read, urllib_urlencode  # NOQA
+
+def wraps_saveargs(wrapped):
+	def dec(wrapper):
+		r = wraps(wrapped)(wrapper)
+		r.powerline_origin = getattr(wrapped, 'powerline_origin', wrapped)
+		return r
+	return dec
 
 
 def mergedicts(d1, d2):
@@ -19,7 +23,7 @@ def mergedicts(d1, d2):
 
 def add_divider_highlight_group(highlight_group):
 	def dec(func):
-		@wraps(func)
+		@wraps_saveargs(func)
 		def f(**kwargs):
 			r = func(**kwargs)
 			if r:
@@ -40,7 +44,11 @@ def keyvaluesplit(s):
 		raise ValueError('Option names must not start with `_\'')
 	idx = s.index('=')
 	o = s[:idx]
-	val = json.loads(s[idx + 1:])
+	rest = s[idx + 1:]
+	if rest[0] in '"{[0193456789' or rest in ('null', 'true', 'false'):
+		val = json.loads(s[idx + 1:])
+	else:
+		val = rest
 	return (o, val)
 
 

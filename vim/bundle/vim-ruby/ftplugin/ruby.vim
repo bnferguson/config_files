@@ -67,7 +67,7 @@ if !exists('g:ruby_version_paths')
 endif
 
 function! s:query_path(root)
-  let code = "print $:.join(%q{,})"
+  let code = "print $:.join %q{,}"
   if &shell =~# 'sh' && $PATH !~# '\s'
     let prefix = 'env PATH='.$PATH.' '
   else
@@ -83,7 +83,9 @@ function! s:query_path(root)
   let cwd = getcwd()
   try
     exe cd fnameescape(a:root)
-    return split(system(path_check),',')
+    let path = split(system(path_check),',')
+    exe cd fnameescape(cwd)
+    return path
   finally
     exe cd fnameescape(cwd)
   endtry

@@ -27,7 +27,8 @@ git_bundles = [
   "https://github.com/empanda/vim-varnish.git",
   "https://github.com/Nemo157/glsl.vim.git",
   "https://github.com/scrooloose/syntastic.git",
-  "https://github.com/bnferguson/rust.vim"
+  "https://github.com/bnferguson/rust.vim",
+  "https://github.com/rodjek/vim-puppet"
 ]
 
 vim_org_scripts = [
